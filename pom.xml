@@ -8,7 +8,8 @@
     <artifactId>ioc</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-
+    <!-- This is core dependency for spring boot project. All the core maven spring
+    dependency relise on it.-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -46,11 +47,19 @@
 
 
     <dependencies>
+
+        <!-- Not needed now i believe since we are using spring starter project
+        so it will get downloaded automatically -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>5.1.9.RELEASE</version>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-aop</artifactId>-->
+<!--        </dependency>-->
 
 
         <!-- Spring MVC -->
@@ -58,6 +67,14 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>5.1.9.RELEASE</version>
+        </dependency>
+
+        <!-- This is to support AOP library -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.12</version>
+            <scope>compile</scope>
         </dependency>
 
 
@@ -77,6 +94,19 @@
             <artifactId>json-path</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- Hibernate and JPA dependency : start -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- Hibernate and JPA dependency : ends -->
 
 
 
