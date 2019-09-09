@@ -5,8 +5,8 @@ import java.util.Optional;
 public class Name {
 
 	private String firstName;
-	private Optional<String> middleName;
-	private Optional<String> lastName;
+	private Optional<String> middleName = Optional.empty();
+	private Optional<String> lastName = Optional.empty();
 
 	public Name(String firstName) {
 		this.firstName = firstName;

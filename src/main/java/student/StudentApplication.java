@@ -13,9 +13,9 @@ public class StudentApplication {
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = new AnnotationConfigApplicationContext("student");
 
-		for (String name: applicationContext.getBeanDefinitionNames()) {
-			System.out.println(name);
-		}
+//		for (String name: applicationContext.getBeanDefinitionNames()) {
+//			System.out.println(name);
+//		}
 
 
 		Student studentOne = new Student(new Name("Sandeep"));
@@ -23,14 +23,17 @@ public class StudentApplication {
 		applicationContext.getBean("registration", Registration.class).register(studentOne);
 
 
-		Student studentTwo = new Student(new Name("Raj"));
-		studentTwo.setGender(Gender.MALE);
+		Student studentTwo = new Student(new Name("Vaishali"));
+		studentTwo.setGender(Gender.FEMALE);
 		applicationContext.getBean("registration", Registration.class).register(studentTwo);
 
 
 		// Verify
-		System.out.println(applicationContext.getBean("register", Register.class).getStudentCount());
-		System.out.println(Boolean.toString(applicationContext.getBean("registration", Registration.class).isRegistered(studentTwo, 2)));
+		System.out.println(applicationContext.getBean("register", Register.class)
+				.getStudentCount());
+		System.out.println(Boolean.toString(applicationContext
+				.getBean("registration", Registration.class)
+				.isRegistered(studentTwo, 2)));
 	}
 
 }
